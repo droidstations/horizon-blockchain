@@ -1,0 +1,7 @@
+{
+    "workbench.tree.indent": 30,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+    "prettier.tabWidth": 4
+}

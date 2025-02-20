@@ -1,0 +1,114 @@
+[ redesign ]
+Whole project : Move from CommonJS to ESM-syntax. Define type=module in package.json
+transfer prototype and constructor to es6 class syntax
+
+---------------------------------------------------------------------------------------------------
+
+
+Before redesign, create new copy of working project for redesign project. Just in case to have working start point if redesign project gets complicated.
+
+[ redesign ]
+How to save data when server is restared due to any reason.
+Even any kind of error restarts server !!
+
+[ redesign ]
+creation of new nodes must be dynamic, not hardcoded in package.json file. this is done with javascript fork() function
+all elements connected to creation of new nodes must be dynamic, example : getting url of new node (currently hardcoded in package.json file)
+
+[ redesign ]
+Consensus algorhytm must work by hitting any node, not by hitting only new nodes.
+It is best to add this functionality on two places, point 1 when new node is added, point 2 by hitting any node.
+
+[ redesign ]
+Add error handling in whole project where is required.
+
+For basic error handling inside functions, try...catch works well.
+For async/await, always wrap calls in try...catch to handle promise rejections.
+
+1.
+async function processTransaction(tx) {
+    try {
+        const result = await blockchain.process(tx);
+        return result;
+    } catch (error) {
+        console.error("Transaction failed:", error.message);
+        throw new Error("Transaction processing error");
+    }
+}
+
+2.
+Blockchains rely on valid transactions. Always validate incoming data before processing.
+
+function validateTransaction(tx) {
+    if (!tx.from || !tx.to || !tx.amount) {
+        throw new Error("Invalid transaction format");
+    }
+}
+
+3.
+Handle Promise Rejections Globally
+
+Use a global handler for uncaught rejections.
+
+process.on("unhandledRejection", (reason, promise) => {
+    console.error("Unhandled Rejection:", reason);
+});
+
+4.
+Use Middleware for API Error Handling (Express)
+
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).json({ error: err.message });
+});
+
+5.
+Graceful Shutdown on Fatal Errors
+
+process.on("SIGINT", () => {
+    console.log("Shutting down...");
+    // Close DB connections, flush logs, etc.
+    process.exit(0);
+});
+
+[ redesign ]
+Write logging system.
+Use a logging library like winston for structured error logging.
+
+const winston = require("winston");
+const logger = winston.createLogger({
+    level: "error",
+    transports: [new winston.transports.File({ filename: "error.log" })],
+});
+
+function logError(error) {
+    logger.error(error.message);
+}
+
+
+
+[ redesign ]
+change names & structure of files and folders
+
+[ redesign ]
+in proof of work number of leading zeros can be top 4, because of speed of average computer. result of testing : for 5 leading zeros i waited for minutes and no find.
+
+[ redesign ]
+technology for block-explorer frontend - react.js
+Main research : should block-explorer be on each node,or as separate react.js application ?
+
+Result of research : 
+Summary:
+Separation of the block-explorer, API, and blockchain allows for better security, scalability, and flexibility.
+Public HTTP Address: The block-explorer is typically available on a constant public HTTP address, making it easy for users to access and interact with the blockchain data.
+This architecture allows for maintenance, updates, and optimization without affecting the core blockchain functionality.
+In a production environment, this architecture is generally considered a best practice for scalability and user accessibility.
+
+block-explorer design : same as on main crypto sites : only text in placeholder and search all domains for entered text : this means only one api end point
+block-explorer design and operation : study main crypto sites
+
+[ redesign ]
+Add check : user can not send coins if he does not have sufficient coins on account. Account is address.
+
+[ redesign ]
+Add check : do not do mine if there are no pending transactions.

@@ -1,0 +1,9 @@
+[ Creation of project ]
+npx create-react-app blockchain-explorer
+cd blockchain-explorer
+
+npm install axios
+npm install react-router-dom
+
+[ Start project ]
+npm start
