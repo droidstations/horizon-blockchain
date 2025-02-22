@@ -4,7 +4,7 @@ import sha256 from "sha256"; // No destructuring needed
 
 const currentNodeUrl = process.argv[3];
 
-export class DashBlockchain {
+export class HorizonBlockchain {
     constructor() {
         this.chain = [];
         this.pendingTransactions = [];

@@ -1,6 +1,6 @@
-import { DashBlockchain } from "../dashblockchain/dashblockchain.js";
+import { HorizonBlockchain } from "../horizonblockchain/horizonblockchain.js";
 
-const dashcoin = new DashBlockchain();
+const horizoncoin = new HorizonBlockchain();
 
 const bc1 = {
     chain: [
@@ -139,4 +139,4 @@ const bc1 = {
     networkNodes: [],
 };
 
-console.log("VALID: ", dashcoin.chainIsValid(bc1.chain));
+console.log("VALID: ", horizoncoin.chainIsValid(bc1.chain));
