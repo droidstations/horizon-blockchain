@@ -1,4 +1,4 @@
-import { HorizonBlockchain } from "../horizonblockchain/horizonblockchain.js";
+import { HorizonBlockchain } from "../horizon-blockchain/horizon-blockchain.js";
 
 const horizoncoin = new HorizonBlockchain();
 

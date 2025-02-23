@@ -18,7 +18,7 @@ import bodyParser from "body-parser"; // No destructuring needed
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.get("/horizonblockchain", function (req, res) {
+app.get("/horizon-blockchain", function (req, res) {
     res.send(horizoncoin);
 });
 
@@ -200,7 +200,7 @@ app.get("/consensus", function (req, res) {
     const requestPromises = [];
     horizoncoin.networkNodes.forEach((networkNodeUrl) => {
         const requestOptions = {
-            uri: networkNodeUrl + "/horizonblockchain",
+            uri: networkNodeUrl + "/horizon-blockchain",
             method: "GET",
             json: true,
         };
