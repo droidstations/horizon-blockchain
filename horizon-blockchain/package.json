@@ -4,7 +4,19 @@
     "type": "module",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "generate_network": "nodemon --watch horizon-network -e js horizon-network/horizon-network.js"
+        "seed_node_1": "nodemon --watch horizon-node -e js horizon-node/horizon-node.js 51001 localhost",
+        "seed_node_2": "nodemon --watch horizon-node -e js horizon-node/horizon-node.js 51002 localhost",
+        "seed_node_3": "nodemon --watch horizon-node -e js horizon-node/horizon-node.js 51003 localhost",
+        "company_node_1": "nodemon --watch horizon-node -e js horizon-node/horizon-node.js 52001 localhost",
+        "company_node_2": "nodemon --watch horizon-node -e js horizon-node/horizon-node.js 52002 localhost",
+        "company_node_3": "nodemon --watch horizon-node -e js horizon-node/horizon-node.js 52003 localhost",
+        "company_node_4": "nodemon --watch horizon-node -e js horizon-node/horizon-node.js 52004 localhost",
+        "company_node_5": "nodemon --watch horizon-node -e js horizon-node/horizon-node.js 52005 localhost",
+        "company_node_6": "nodemon --watch horizon-node -e js horizon-node/horizon-node.js 52006 localhost",
+        "company_node_7": "nodemon --watch horizon-node -e js horizon-node/horizon-node.js 52007 localhost",
+        "company_node_8": "nodemon --watch horizon-node -e js horizon-node/horizon-node.js 52008 localhost",
+        "company_node_9": "nodemon --watch horizon-node -e js horizon-node/horizon-node.js 52009 localhost",
+        "company_node_10": "nodemon --watch horizon-node -e js horizon-node/horizon-node.js 52010 localhost"
     },
     "author": "",
     "license": "ISC",
